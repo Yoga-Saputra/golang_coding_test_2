@@ -21,7 +21,7 @@
 RESTful API of <b>Golang Coding Test</b>
 </p>
 
-# Golang Conding Test of API Guide
+# Golang Coding Test of API Guide
 
 ## 🔀 Compatible Route Endpoint
 | NO | Use                           | Endpoint           | Example                                 | Action
