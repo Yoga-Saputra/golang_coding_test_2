@@ -24,119 +24,48 @@ RESTful API of <b>Golang Coding Test</b>
 # Golang Conding Test of API Guide
 
 ## 🔀 Compatible Route Endpoint
-| NO | Use                           | Endpoint               | Example                     | Action
-|----|-------------------------------|------------------------|-----------------------------|------------
-| 1  | Hello                         | /              | http://localhost:3003/              | GET
-| 2  | Palindrome                    | /palindrome    | http://localhost:3003/palindrom     | GET
-| 3  | Get language point 2          | /language      | http://localhost:3003/language      | GET
-| 4  | Get All language              | /languages     | http://localhost:3003/languages     | POST
-| 5  | Get language by id            | /language/:id  | http://localhost:3003/language/:id  | GET
-| 6  | Create language               | /language      | http://localhost:3003/language      | POST
-| 7  | Get language by id            | /language/:id  | http://localhost:3003/language/:id  | GET
-| 8  | Update language by id         | /language/:id  | http://localhost:3003/language/:id  | UPDATE
-| 9  | Delete language by id         | /language/:id  | http://localhost:3003/language/:id  | DELETE
+| NO | Use                           | Endpoint           | Example                                 | Action
+|----|-------------------------------|--------------------|-----------------------------------------|------------
+| 1  | Get All Member                | /api/members       | http://localhost:3000/api/members       | GET
+| 2  | Create Member                 | /api/members       | http://localhost:3000/api/members       | POST
+| 3  | Get Detail Member             | /api/members       | http://localhost:3000/api/members/:id   | Get
+| 4  | Update Member                 | /api/members       | http://localhost:3000/api/members/:id   | PUT
+| 5  | Delete Member                 | /api/members       | http://localhost:3000/api/members/:id   | DELETE
 
 ---
 
 ## 📖 Compatible JSON Payload Golang Conding Test of API
 This is the JSON payload that's sended to Golang Conding Test of API
 
-### 💲 Create Language JSON Payload (Raw JSON)
+### 💲 Create Member JSON Payload (Raw JSON)
 ```js
-[
-    {
-        "appeared": 2009,
-        "language": "Go",
-        "created": [
-            "Robert Griesemer",
-            "Rob Pike",
-            "Ken Thompson"
-        ],
-        "functional": true,
-        "object-oriented": false,
-        "relation": {
-            "influenced-by": [
-                "C",
-                "Python",
-                "Pascal",
-                "Smalltalk",
-                "Modula"
-            ],
-            "influences": [
-                "Odin",
-                "Crystal",
-                "Zig"
-            ]
-        }
-    },
-    {
-        "appeared": 1991,
-        "language": "Python",
-        "created": [
-            "Guido van Rossum"
-        ],
-        "functional": true,
-        "object-oriented": true,
-        "relation": {
-            "influenced-by": [
-                "C",
-                "C++",
-                "ALGOL 68",
-                "Ada",
-                "Haskell",
-                "Java",
-                "Lisp"
-            ],
-            "influences": [
-                "Go",
-                "CoffeeScript",
-                "JavaScript",
-                "Julia",
-                "Ruby",
-                "Swift"
-            ]
-        }
-    }
-]
-```
-
-### 💸 Get Language by ID
-```js
-http://localhost:3003/language/1 => GET
-```
-### 💸 Update Language JSON Payload (Raw JSON)
-
-```js
-http://localhost:3003/language/1 => UPDATE
-
+http://localhost:3000/api/members => POST
 {
-    "language": "Laravel 10",
-    "appeared": 2009,
-    "created": [
-        "Robert Griesemer",
-        "Rob Pike",
-        "Ken Thompson"
-    ],
-    "functional": true,
-    "object-oriented": false,
-    "relation": {
-        "influenced-by": [
-            "C",
-            "Python",
-            "Pascal",
-            "Smalltalk",
-            "Modula"
-        ],
-        "influences": [
-            "Odin",
-            "Crystal",
-            "Zig"
-        ]
-    }
+    "username": "developer Laravel",
+    "gender": "L",
+    "skintype": "B",
+    "skincolor": "Red asda"
 }
 ```
 
-### 💸 Delete Language by ID
+### 💸 Get Member by ID
 ```js
-http://localhost:3003/language/1  => DELETE 
+http://localhost:3000/api/members/1 => GET
+```
+### 💸 Update Member JSON Payload (Raw JSON)
+
+```js
+http://localhost:3000/api/members/1 => UPDATE
+
+{
+    "username": "Member JS",
+    "gender": "P",
+    "skintype": "B",
+    "skincolor": "Red asda"
+}
+```
+
+### 💸 Delete Member by ID
+```js
+http://localhost:3000/api/members/1  => DELETE 
 ```

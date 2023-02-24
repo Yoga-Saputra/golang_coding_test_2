@@ -1,0 +1,6 @@
+[ERROR]: 2023-02-07 17:45:27 - Data => null
+[ERROR]: 2023-02-07 17:45:27 - Data => {"campaign_user_id":8,"userId":8}
+[ERROR]: 2023-02-07 17:45:27 - Data => null
+[ERROR]: 2023-02-07 17:45:27 - Data => null
+[ERROR]: 2023-02-07 17:50:11 - Data => {"meta":{"message":"login account failed","code":422,"status":"error"},"data":"\"no user found on that email address\""}
+[ERROR]: 2023-02-07 19:43:49 - Data => {"meta":{"message":"login account failed","code":422,"status":"error"},"data":"\"no user found on that email address\""}

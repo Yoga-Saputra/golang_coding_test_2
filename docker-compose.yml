@@ -12,18 +12,18 @@ services:
     volumes:
       - ./:/app
     depends_on:
-      - db-mysql
-  db-mysql:
-    container_name: mysql_db
+      - db_coding_test
+  db_coding_test:
+    container_name: coding_test_db
     platform: linux/x86_64
     image: mysql:5.7
     ports: 
-      - 3306:3306
+      - "${MYSQL_PORT}:${MYSQL_PORT}"
     environment: 
-      - MYSQL_DATABASE=golang_startup
-      - MYSQL_ROOT_PASSWORD=P@ssW0rd
+      - MYSQL_DATABASE=${MYSQL_DBNAME}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}
     volumes:
       - mysql_db:/var/lib/mysql
       
 volumes:
-  mysql_db:
+  coding_test_db:

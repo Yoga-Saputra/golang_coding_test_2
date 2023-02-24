@@ -1,0 +1,5 @@
+[ERROR]: 2023-02-24 22:21:53 - Data => {"meta":{"message":"insert member failed","code":422,"status":"error"},"data":"{\"errors\":[\"Key: 'InputMember.Skincolor' Error:Field validation for 'Skincolor' failed on the 'required' tag\"]}"}
+[ERROR]: 2023-02-24 23:13:55 - Data => {"meta":{"message":"insert member failed","code":422,"status":"error"},"data":"\"Error 1265 (01000): Data truncated for column 'gender' at row 1\""}
+[ERROR]: 2023-02-24 23:14:24 - Data => {"meta":{"message":"insert member failed","code":422,"status":"error"},"data":"\"Error 1265 (01000): Data truncated for column 'gender' at row 1\""}
+[ERROR]: 2023-02-24 23:16:13 - Data => {"meta":{"message":"insert member failed","code":422,"status":"error"},"data":"\"Error 1265 (01000): Data truncated for column 'gender' at row 1\""}
+[ERROR]: 2023-02-24 23:40:49 - Data => {"meta":{"message":"failed to update member","code":422,"status":"error"},"data":"{\"error\":{\"errors\":[\"Key: 'InputMember.Gender' Error:Field validation for 'Gender' failed on the 'required' tag\"]}}"}

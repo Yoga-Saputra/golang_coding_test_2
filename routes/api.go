@@ -1,45 +1,35 @@
 package routes
 
 import (
+	"codingTest/app/handler"
+	"codingTest/app/members"
 	"codingTest/config"
-	"codingTest/handler"
-	"codingTest/helper"
-	"codingTest/users"
 	"net/http"
-	"runtime"
-	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/jpillora/overseer"
 )
 
 func InitApi(state overseer.State) {
+	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 	router.Use(gin.Logger())
 
 	db := config.ConnectionDB()
-	userRepository := users.NewRepository(db)
-	userService := users.NewService(userRepository)
-	userhandler := handler.NewUserHandler(userService)
 
-	router.GET("/", func(ctx *gin.Context) {
-		now := time.Now()
-		nowFormat := now.Format("2006-01-02 15:04:05")
+	memberRepository := members.NewRepository(db)
+	memberService := members.NewService(memberRepository)
+	memberHandler := handler.NewMemberHandler(memberService)
 
-		map1 := map[string]string{
-			"version":     runtime.Version(),
-			"last_update": nowFormat,
-		}
+	api := router.Group("/api")
 
-		// Convert the map to JSON
-		jsonContent := helper.MapToJson(map1)
-		config.Loggers("info", string(jsonContent))
+	member := api.Group("/members")
+	member.GET("/", memberHandler.GetALlMembers)
+	member.GET("/:id", memberHandler.GetMember)
+	member.POST("/", memberHandler.Save)
+	member.PUT("/:id", memberHandler.Update)
+	member.DELETE("/:id", memberHandler.Delete)
 
-		ctx.JSON(http.StatusOK, map1)
-	})
-
-	api := router.Group("/api/v1")
-	api.POST("/users", userhandler.RegisterUser)
 	router.Run(":3000")
 
 	http.Serve(state.Listener, router)
