@@ -17,7 +17,7 @@
     <img src="https://img.shields.io/badge/License-MIT-green.svg">
 </a>
 </p>
-<p align="center">
+<p align="center mb-4">
 RESTful API of <b>Golang Coding Test</b>
 </p>
 
