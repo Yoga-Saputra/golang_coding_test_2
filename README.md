@@ -34,7 +34,7 @@ RESTful API of <b>Golang Coding Test</b>
 
 ---
 
-## 📖 Compatible JSON Payload Golang Conding Test of API
+## 📖 Compatible JSON Payload Golang Coding Test of API
 This is the JSON payload that's sended to Golang Conding Test of API
 
 ### 💲 Create Member JSON Payload (Raw JSON)
