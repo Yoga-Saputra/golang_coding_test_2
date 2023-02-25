@@ -40,11 +40,11 @@ RESTful API of <b>Golang Coding Test</b>
 | 3   | Get Detail Member          | /api/members            | http://localhost:3000/api/members/:id       | Get
 | 4   | Update Member              | /api/members            | http://localhost:3000/api/members/:id       | PUT
 | 5   | Delete Member              | /api/members            | http://localhost:3000/api/members/:id       | DELETE
-| 6   | Get All Member             | /api/products           | http://localhost:3000/api/products          | GET
-| 7   | Create Member              | /api/products           | http://localhost:3000/api/products          | POST
-| 8   | Get Detail Member          | /api/products           | http://localhost:3000/api/products/:id      | Get
-| 9   | Update Member              | /api/products           | http://localhost:3000/api/products/:id      | PUT
-| 10  | Delete Member              | /api/products           | http://localhost:3000/api/products/:id      | DELETE
+| 6   | Get All Product            | /api/products           | http://localhost:3000/api/products          | GET
+| 7   | Create Product             | /api/products           | http://localhost:3000/api/products          | POST
+| 8   | Get Detail Product         | /api/products           | http://localhost:3000/api/products/:id      | Get
+| 9   | Update Product             | /api/products           | http://localhost:3000/api/products/:id      | PUT
+| 10  | Delete Product             | /api/products           | http://localhost:3000/api/products/:id      | DELETE
 | 11  | Review Products            | /api/review-products    | http://localhost:3000/api/review-products   | GET
 
 ---
