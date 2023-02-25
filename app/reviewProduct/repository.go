@@ -8,6 +8,8 @@ import (
 
 type Repository interface {
 	FindAll() ([]ReviewProduct, error)
+	Insert(reviewProduct ReviewProduct) (ReviewProduct, error)
+	FindById(id int, fieldName string) (ReviewProduct, error)
 }
 
 type repositoryDB struct {
@@ -28,4 +30,26 @@ func (r *repositoryDB) FindAll() ([]ReviewProduct, error) {
 	fmt.Println(rProduct)
 
 	return rProduct, nil
+}
+
+func (r *repositoryDB) FindById(id int, fieldName string) (ReviewProduct, error) {
+	var reviewProduct ReviewProduct
+
+	field := fmt.Sprintf("%s = ?", fieldName)
+	err := r.db.Where(field, id).Find(&reviewProduct).Error
+	if err != nil {
+		return reviewProduct, err
+	}
+
+	return reviewProduct, nil
+}
+
+func (r *repositoryDB) Insert(reviewProduct ReviewProduct) (ReviewProduct, error) {
+	err := r.db.Create(&reviewProduct).Error
+
+	if err != nil {
+		return reviewProduct, err
+	}
+
+	return reviewProduct, nil
 }

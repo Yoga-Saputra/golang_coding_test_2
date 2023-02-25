@@ -7,9 +7,9 @@ import (
 type Service interface {
 	GetProducts() ([]Product, error)
 	InsertProduct(input InputProduct) (Product, error)
-	GetProductById(input GetProductDetailInput) (Product, error)
-	UpdateProduct(input InputProduct, IDProduct GetProductDetailInput) (Product, error)
-	DeleteProduct(input GetProductDetailInput) (Product, error)
+	GetProductById(input int) (Product, error)
+	UpdateProduct(input InputProduct, IDProduct int) (Product, error)
+	DeleteProduct(input int) (Product, error)
 }
 
 type service struct {
@@ -47,8 +47,8 @@ func (s *service) InsertProduct(input InputProduct) (Product, error) {
 	return newProduct, nil
 }
 
-func (s *service) GetProductById(input GetProductDetailInput) (Product, error) {
-	product, err := s.repository.FindById(input.IDProduct)
+func (s *service) GetProductById(input int) (Product, error) {
+	product, err := s.repository.FindById(input)
 	if err != nil {
 		return product, err
 	}
@@ -60,8 +60,8 @@ func (s *service) GetProductById(input GetProductDetailInput) (Product, error) {
 	return product, nil
 }
 
-func (s *service) UpdateProduct(input InputProduct, inputIDProduct GetProductDetailInput) (Product, error) {
-	product, err := s.repository.FindById(inputIDProduct.IDProduct)
+func (s *service) UpdateProduct(input InputProduct, inputIDProduct int) (Product, error) {
+	product, err := s.repository.FindById(inputIDProduct)
 
 	if err != nil {
 		return product, err
@@ -84,9 +84,9 @@ func (s *service) UpdateProduct(input InputProduct, inputIDProduct GetProductDet
 	return updateProduct, nil
 }
 
-func (s *service) DeleteProduct(input GetProductDetailInput) (Product, error) {
+func (s *service) DeleteProduct(input int) (Product, error) {
 
-	product, err := s.repository.FindById(input.IDProduct)
+	product, err := s.repository.FindById(input)
 
 	if err != nil {
 		return product, err
@@ -96,7 +96,7 @@ func (s *service) DeleteProduct(input GetProductDetailInput) (Product, error) {
 		return product, errors.New("no product found on that id")
 	}
 
-	_, err = s.repository.Delete(input.IDProduct)
+	_, err = s.repository.Delete(input)
 
 	if err != nil {
 		return product, err

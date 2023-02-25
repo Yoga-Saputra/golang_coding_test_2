@@ -46,6 +46,9 @@ RESTful API of <b>Golang Coding Test</b>
 | 9   | Update Product             | /api/products           | http://localhost:3000/api/products/:id      | PUT
 | 10  | Delete Product             | /api/products           | http://localhost:3000/api/products/:id      | DELETE
 | 11  | Review Products            | /api/review-products    | http://localhost:3000/api/review-products   | GET
+| 12  | Create Review Products     | /api/review-products    | http://localhost:3000/api/review-products   | POST
+| 13  | Like                       | /api/like               | http://localhost:3000/api/like              | POST
+| 14  | Dislike                    | /api/dislike            | http://localhost:3000/api/dislike           | DELETE
 
 ---
 

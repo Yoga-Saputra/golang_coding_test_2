@@ -2,6 +2,7 @@ package routes
 
 import (
 	"codingTest/app/handler"
+	likereview "codingTest/app/likeReview"
 	"codingTest/app/members"
 	"codingTest/app/products"
 	reviewproduct "codingTest/app/reviewProduct"
@@ -21,15 +22,23 @@ func InitApi(state overseer.State) {
 
 	memberRepository := members.NewRepository(db)
 	memberService := members.NewService(memberRepository)
-	memberHandler := handler.NewMemberHandler(memberService)
-
-	productRepository := products.NewRepository(db)
-	productService := products.NewService(productRepository)
-	productHandler := handler.NewProductHandler(productService)
 
 	rProductRepository := reviewproduct.NewRepository(db)
 	rProductService := reviewproduct.NewService(rProductRepository)
-	rProductHandler := handler.NewReviewProductHandler(rProductService)
+
+	lRev := likereview.NewRepository(db)
+	Lservice := likereview.NewService(lRev)
+
+	productRepository := products.NewRepository(db)
+	productService := products.NewService(productRepository)
+
+	memberHandler := handler.NewMemberHandler(memberService, rProductService)
+
+	productHandler := handler.NewProductHandler(productService, rProductService)
+
+	rProductHandler := handler.NewReviewProductHandler(rProductService, productService, memberService)
+
+	likeRevHamdler := handler.NewLikeReviewHandler(Lservice, rProductService, memberService)
 
 	api := router.Group("/api")
 
@@ -42,6 +51,10 @@ func InitApi(state overseer.State) {
 
 	rProduct := api.Group("/review-products")
 	rProduct.GET("/", rProductHandler.GetAllReviewProducts)
+	rProduct.POST("/", rProductHandler.Save)
+
+	api.POST("/like", likeRevHamdler.LikeRev)
+	api.DELETE("/dislike", likeRevHamdler.Dislike)
 
 	product := api.Group("/products")
 	product.GET("/", productHandler.GetALlProduct)

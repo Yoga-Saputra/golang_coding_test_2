@@ -7,9 +7,9 @@ import (
 type Service interface {
 	GetMembers() ([]Member, error)
 	InsertMember(input InputMember) (Member, error)
-	GetMemberById(input GetMemberDetailInput) (Member, error)
-	UpdateMember(input InputMember, IDMember GetMemberDetailInput) (Member, error)
-	DeleteMember(input GetMemberDetailInput) (Member, error)
+	GetMemberById(input int) (Member, error)
+	UpdateMember(input InputMember, IDMember int) (Member, error)
+	DeleteMember(input int) (Member, error)
 }
 
 type service struct {
@@ -48,8 +48,8 @@ func (s *service) InsertMember(input InputMember) (Member, error) {
 	return newMember, nil
 }
 
-func (s *service) GetMemberById(input GetMemberDetailInput) (Member, error) {
-	member, err := s.repository.FindById(input.IDMember)
+func (s *service) GetMemberById(input int) (Member, error) {
+	member, err := s.repository.FindById(input)
 	if err != nil {
 		return member, err
 	}
@@ -61,8 +61,8 @@ func (s *service) GetMemberById(input GetMemberDetailInput) (Member, error) {
 	return member, nil
 }
 
-func (s *service) UpdateMember(input InputMember, inputIDMember GetMemberDetailInput) (Member, error) {
-	member, err := s.repository.FindById(inputIDMember.IDMember)
+func (s *service) UpdateMember(input InputMember, inputIDMember int) (Member, error) {
+	member, err := s.repository.FindById(inputIDMember)
 
 	if err != nil {
 		return member, err
@@ -86,9 +86,9 @@ func (s *service) UpdateMember(input InputMember, inputIDMember GetMemberDetailI
 	return updateMember, nil
 }
 
-func (s *service) DeleteMember(input GetMemberDetailInput) (Member, error) {
+func (s *service) DeleteMember(input int) (Member, error) {
 
-	member, err := s.repository.FindById(input.IDMember)
+	member, err := s.repository.FindById(input)
 
 	if err != nil {
 		return member, err
@@ -98,7 +98,7 @@ func (s *service) DeleteMember(input GetMemberDetailInput) (Member, error) {
 		return member, errors.New("no member found on that id")
 	}
 
-	_, err = s.repository.Delete(input.IDMember)
+	_, err = s.repository.Delete(input)
 
 	if err != nil {
 		return member, err

@@ -3,17 +3,19 @@ package handler
 import (
 	"codingTest/app/helper"
 	"codingTest/app/members"
+	reviewproduct "codingTest/app/reviewProduct"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
 type memberHandler struct {
-	memberService members.Service
+	memberService     members.Service
+	revProductService reviewproduct.Service
 }
 
-func NewMemberHandler(memberService members.Service) *memberHandler {
-	return &memberHandler{memberService}
+func NewMemberHandler(memberService members.Service, revProductService reviewproduct.Service) *memberHandler {
+	return &memberHandler{memberService, revProductService}
 }
 
 func (h *memberHandler) GetALlMembers(ctx *gin.Context) {
@@ -41,7 +43,7 @@ func (h *memberHandler) GetMember(ctx *gin.Context) {
 		return
 	}
 
-	member, err := h.memberService.GetMemberById(input)
+	member, err := h.memberService.GetMemberById(input.IDMember)
 
 	if err != nil {
 		response := helper.ApiResponse("failed to get detail of member", http.StatusBadRequest, "error", err.Error())
@@ -99,7 +101,7 @@ func (h *memberHandler) Update(ctx *gin.Context) {
 		return
 	}
 
-	updateMember, err := h.memberService.UpdateMember(inputData, inputId)
+	updateMember, err := h.memberService.UpdateMember(inputData, inputId.IDMember)
 
 	if err != nil {
 		response := helper.ApiResponse("failed to update member", http.StatusBadRequest, "error", err.Error())
@@ -124,7 +126,21 @@ func (h *memberHandler) Delete(ctx *gin.Context) {
 		return
 	}
 
-	_, err = h.memberService.DeleteMember(input)
+	rProduct, err := h.revProductService.GetReviewProductById(input.IDMember, "id_member")
+	if err != nil {
+		response := helper.ApiResponse("failed to delete member", http.StatusBadRequest, "error", err.Error())
+		ctx.JSON(http.StatusBadRequest, response)
+		return
+	}
+
+	if rProduct.ID_Review > 0 {
+		msg := "Cannot delete a parent row: a foreign key constraint that id_member"
+		response := helper.ApiResponse("failed to delete member", http.StatusForbidden, "error", msg)
+		ctx.JSON(http.StatusForbidden, response)
+		return
+	}
+
+	_, err = h.memberService.DeleteMember(input.IDMember)
 
 	if err != nil {
 		response := helper.ApiResponse("failed to delete member", http.StatusBadRequest, "error", err.Error())

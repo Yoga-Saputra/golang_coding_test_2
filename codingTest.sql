@@ -20,6 +20,7 @@ CREATE TABLE `review_products` (
   `desc_review` text
 );
 
+
 CREATE TABLE `like_reviews` (
   `id_review` bigint,
   `id_member` bigint
