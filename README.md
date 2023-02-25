@@ -127,7 +127,7 @@ http://localhost:3000/api/review-products  => GET
 ### 💸 Create Review Product JSON Payload (Raw JSON)
 
 ```js
-http://localhost:3000/api/review-products => UPDATE
+http://localhost:3000/api/review-products => Create
 
 {
     "id_product": 1,
