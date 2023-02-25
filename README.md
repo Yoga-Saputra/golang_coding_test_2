@@ -123,3 +123,38 @@ http://localhost:3000/api/products/1  => DELETE
 ```js
 http://localhost:3000/api/review-products  => GET 
 ```
+
+### 💸 Create Review Product JSON Payload (Raw JSON)
+
+```js
+http://localhost:3000/api/review-products => UPDATE
+
+{
+    "id_product": 1,
+    "id_member": 1,
+    "desc_review": "Laravel the bes"
+}
+
+```
+
+### 💸 Like JSON Payload (Raw JSON)
+
+```js
+http://localhost:3000/api/like => POST
+
+{
+    "id_review": 1,
+    "id_member": 1
+}
+```
+
+### 💸 Dislike JSON Payload (Raw JSON)
+
+```js
+http://localhost:3000/api/dislike => DELETE
+
+{
+    "id_review": 1,
+    "id_member": 1
+}
+```
