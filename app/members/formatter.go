@@ -21,12 +21,12 @@ func FormatMember(member Member) MemberFormatter {
 	return formatter
 }
 
-// mapping  slice campaigns
+// mapping  slice members
 func FormatMemberSlice(members []Member) []MemberFormatter {
 	membersFormatter := []MemberFormatter{}
 
-	for _, campaign := range members {
-		memberFormatter := FormatMember(campaign)
+	for _, member := range members {
+		memberFormatter := FormatMember(member)
 		membersFormatter = append(membersFormatter, memberFormatter)
 	}
 

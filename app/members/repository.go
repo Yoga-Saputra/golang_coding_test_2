@@ -1,8 +1,6 @@
 package members
 
 import (
-	"fmt"
-
 	"gorm.io/gorm"
 )
 
@@ -23,15 +21,13 @@ func NewRepository(db *gorm.DB) *repositoryDB {
 }
 
 // insert data to table members
-
 func (r *repositoryDB) Insert(member Member) (Member, error) {
 	err := r.db.Create(&member).Error
 
 	if err != nil {
 		return member, err
 	}
-	// config.Loggers("info", member)
-	fmt.Println(member)
+
 	return member, nil
 }
 
@@ -69,11 +65,6 @@ func (r *repositoryDB) FindAll() ([]Member, error) {
 
 func (r *repositoryDB) Delete(idMember int) (Member, error) {
 	var member Member
-
-	// err := r.db.Where("id_member = ?", idMember).Find(&member).Error
-	// if err != nil {
-	// 	return member, err
-	// }
 
 	err := r.db.Where("id_member = ?", idMember).Delete(&member).Error
 	if err != nil {

@@ -44,7 +44,3 @@ CREATE INDEX `like_reviews_index_7` ON `like_reviews` (`id_review`, `id_member`)
 ALTER TABLE `review_products` ADD FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`);
 
 ALTER TABLE `review_products` ADD FOREIGN KEY (`id_member`) REFERENCES `members` (`id_member`);
-
-ALTER TABLE `like_reviews` ADD FOREIGN KEY (`id_review`) REFERENCES `review_products` (`id_review`);
-
-ALTER TABLE `like_reviews` ADD FOREIGN KEY (`id_member`) REFERENCES `members` (`id_member`);

@@ -20,12 +20,12 @@ func (h *memberHandler) GetALlMembers(ctx *gin.Context) {
 	allMembers, err := h.memberService.GetMembers()
 
 	if err != nil {
-		response := helper.ApiResponse("error to get campaigns", http.StatusBadRequest, "error", nil)
+		response := helper.ApiResponse("error to get members", http.StatusBadRequest, "error", nil)
 		ctx.JSON(http.StatusBadRequest, response)
 		return
 	}
 
-	response := helper.ApiResponse("list of campaigns", http.StatusOK, "success", members.FormatMemberSlice(allMembers))
+	response := helper.ApiResponse("list of members", http.StatusOK, "success", members.FormatMemberSlice(allMembers))
 
 	ctx.JSON(http.StatusOK, response)
 }
@@ -108,7 +108,7 @@ func (h *memberHandler) Update(ctx *gin.Context) {
 	}
 
 	formatter := members.FormatMember(updateMember)
-	response := helper.ApiResponse("success to update campaign", http.StatusOK, "success", formatter)
+	response := helper.ApiResponse("success to update member", http.StatusOK, "success", formatter)
 	ctx.JSON(http.StatusOK, response)
 
 }

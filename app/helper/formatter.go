@@ -15,8 +15,8 @@ func FormatValidationError(err error) interface{} {
 	for _, e := range err.(validator.ValidationErrors) {
 		errors = append(errors, e.Error())
 	}
-	errorMessage := gin.H{"errors": errors}
-	return errorMessage
+
+	return errors
 }
 
 func ErrorValidation(err error, c *gin.Context, msg string, status string, code int, errMsg interface{}) {

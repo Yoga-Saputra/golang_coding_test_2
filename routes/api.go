@@ -3,6 +3,8 @@ package routes
 import (
 	"codingTest/app/handler"
 	"codingTest/app/members"
+	"codingTest/app/products"
+	reviewproduct "codingTest/app/reviewProduct"
 	"codingTest/config"
 	"net/http"
 
@@ -21,6 +23,14 @@ func InitApi(state overseer.State) {
 	memberService := members.NewService(memberRepository)
 	memberHandler := handler.NewMemberHandler(memberService)
 
+	productRepository := products.NewRepository(db)
+	productService := products.NewService(productRepository)
+	productHandler := handler.NewProductHandler(productService)
+
+	rProductRepository := reviewproduct.NewRepository(db)
+	rProductService := reviewproduct.NewService(rProductRepository)
+	rProductHandler := handler.NewReviewProductHandler(rProductService)
+
 	api := router.Group("/api")
 
 	member := api.Group("/members")
@@ -29,6 +39,16 @@ func InitApi(state overseer.State) {
 	member.POST("/", memberHandler.Save)
 	member.PUT("/:id", memberHandler.Update)
 	member.DELETE("/:id", memberHandler.Delete)
+
+	rProduct := api.Group("/review-products")
+	rProduct.GET("/", rProductHandler.GetAllReviewProducts)
+
+	product := api.Group("/products")
+	product.GET("/", productHandler.GetALlProduct)
+	product.GET("/:id", productHandler.GetProduct)
+	product.POST("/", productHandler.Save)
+	product.PUT("/:id", productHandler.Update)
+	product.DELETE("/:id", productHandler.Delete)
 
 	router.Run(":3000")
 
