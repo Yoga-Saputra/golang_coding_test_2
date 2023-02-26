@@ -32,23 +32,23 @@ RESTful API of <b>Golang Coding Test</b>
 
 # Golang Coding Test of API Guide
 
-## 🔀 Compatible Route Endpoint
+## 🔀 You Can Try This Compatible Route Endpoint
 | NO  | Use                        | Endpoint                | Example                                     | Action
 |-----|----------------------------|-------------------------|---------------------------------------------|------------
-| 1   | Get All Member             | /api/members            | http://localhost:3000/api/members           | GET
-| 2   | Create Member              | /api/members            | http://localhost:3000/api/members           | POST
-| 3   | Get Detail Member          | /api/members            | http://localhost:3000/api/members/:id       | Get
-| 4   | Update Member              | /api/members            | http://localhost:3000/api/members/:id       | PUT
-| 5   | Delete Member              | /api/members            | http://localhost:3000/api/members/:id       | DELETE
-| 6   | Get All Product            | /api/products           | http://localhost:3000/api/products          | GET
-| 7   | Create Product             | /api/products           | http://localhost:3000/api/products          | POST
-| 8   | Get Detail Product         | /api/products           | http://localhost:3000/api/products/:id      | Get
-| 9   | Update Product             | /api/products           | http://localhost:3000/api/products/:id      | PUT
-| 10  | Delete Product             | /api/products           | http://localhost:3000/api/products/:id      | DELETE
-| 11  | Review Products            | /api/review-products    | http://localhost:3000/api/review-products   | GET
-| 12  | Create Review Products     | /api/review-products    | http://localhost:3000/api/review-products   | POST
-| 13  | Like                       | /api/like               | http://localhost:3000/api/like              | POST
-| 14  | Dislike                    | /api/dislike            | http://localhost:3000/api/dislike           | DELETE
+| 1   | Get All Member             | /api/members            | http://104.248.153.255/api/members           | GET
+| 2   | Create Member              | /api/members            | http://104.248.153.255/api/members           | POST
+| 3   | Get Detail Member          | /api/members            | http://104.248.153.255/api/members/:id       | Get
+| 4   | Update Member              | /api/members            | http://104.248.153.255/api/members/:id       | PUT
+| 5   | Delete Member              | /api/members            | http://104.248.153.255/api/members/:id       | DELETE
+| 6   | Get All Product            | /api/products           | http://104.248.153.255/api/products          | GET
+| 7   | Create Product             | /api/products           | http://104.248.153.255/api/products          | POST
+| 8   | Get Detail Product         | /api/products           | http://104.248.153.255/api/products/:id      | Get
+| 9   | Update Product             | /api/products           | http://104.248.153.255/api/products/:id      | PUT
+| 10  | Delete Product             | /api/products           | http://104.248.153.255/api/products/:id      | DELETE
+| 11  | Review Products            | /api/review-products    | http://104.248.153.255/api/review-products   | GET
+| 12  | Create Review Products     | /api/review-products    | http://104.248.153.255/api/review-products   | POST
+| 13  | Like                       | /api/like               | http://104.248.153.255/api/like              | POST
+| 14  | Dislike                    | /api/dislike            | http://104.248.153.255/api/dislike           | DELETE
 
 ---
 
