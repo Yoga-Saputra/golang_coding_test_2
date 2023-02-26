@@ -63,7 +63,7 @@ func InitApi(state overseer.State) {
 	product.PUT("/:id", productHandler.Update)
 	product.DELETE("/:id", productHandler.Delete)
 
-	router.Run(":3000")
+	router.Run(":6006")
 
 	http.Serve(state.Listener, router)
 }

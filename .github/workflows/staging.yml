@@ -1,0 +1,22 @@
+name: coding test
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  Deploy-to-Staging:
+    runs-on: ubuntu-latest
+
+    steps:    
+      - name: "Deploy Go coding test"
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd /var/www/go-startup
+            ./script.sh
+      

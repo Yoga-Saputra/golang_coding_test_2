@@ -11,7 +11,7 @@ import (
 func main() {
 	overseer.Run(overseer.Config{
 		Program: gracefulStart,
-		Address: ":4000",
+		Address: ":2001",
 		Fetcher: &fetcher.HTTP{
 			URL:      "http://localhost",
 			Interval: 1 * time.Second,
