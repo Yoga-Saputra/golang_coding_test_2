@@ -17,6 +17,6 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            cd /var/www/go-startup
-            ./script.sh
+            cd /var/www/golang_coding_test_2
+            git pull origin main
       
