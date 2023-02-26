@@ -57,7 +57,7 @@ This is the JSON payload that's sended to Golang Conding Test of API
 
 ### 💲 Create Member JSON Payload (Raw JSON)
 ```js
-http://localhost:3000/api/members => POST
+http://104.248.153.255/api/members => POST
 {
     "username": "developer Laravel",
     "gender": "L",
@@ -68,12 +68,12 @@ http://localhost:3000/api/members => POST
 
 ### 💸 Get Member by ID
 ```js
-http://localhost:3000/api/members/1 => GET
+http://104.248.153.255/api/members/1 => GET
 ```
 ### 💸 Update Member JSON Payload (Raw JSON)
 
 ```js
-http://localhost:3000/api/members/1 => UPDATE
+http://104.248.153.255/api/members/1 => UPDATE
 
 {
     "username": "Member JS",
@@ -85,12 +85,12 @@ http://localhost:3000/api/members/1 => UPDATE
 
 ### 💸 Delete Member by ID
 ```js
-http://localhost:3000/api/members/1  => DELETE 
+http://104.248.153.255/api/members/1  => DELETE 
 ```
 
 ### 💲 Create Product JSON Payload (Raw JSON)
 ```js
-http://localhost:3000/api/products => POST
+http://104.248.153.255/api/products => POST
 {
     "name": "Course",
     "product": "Programming 1",
@@ -100,12 +100,12 @@ http://localhost:3000/api/products => POST
 
 ### 💸 Get Product by ID
 ```js
-http://localhost:3000/api/products/1 => GET
+http://104.248.153.255/api/products/1 => GET
 ```
 ### 💸 Update Product JSON Payload (Raw JSON)
 
 ```js
-http://localhost:3000/api/products/1 => UPDATE
+http://104.248.153.255/api/products/1 => UPDATE
 
 {
     "name": "Course",
@@ -116,18 +116,18 @@ http://localhost:3000/api/products/1 => UPDATE
 
 ### 💸 Delete Product by ID
 ```js
-http://localhost:3000/api/products/1  => DELETE 
+http://104.248.153.255/api/products/1  => DELETE 
 ```
 
 ### 💸 Get Review Products
 ```js
-http://localhost:3000/api/review-products  => GET 
+http://104.248.153.255/api/review-products  => GET 
 ```
 
 ### 💸 Create Review Product JSON Payload (Raw JSON)
 
 ```js
-http://localhost:3000/api/review-products => Create
+http://104.248.153.255/api/review-products => Create
 
 {
     "id_product": 1,
@@ -140,7 +140,7 @@ http://localhost:3000/api/review-products => Create
 ### 💸 Like JSON Payload (Raw JSON)
 
 ```js
-http://localhost:3000/api/like => POST
+http://104.248.153.255/api/like => POST
 
 {
     "id_review": 1,
@@ -151,7 +151,7 @@ http://localhost:3000/api/like => POST
 ### 💸 Dislike JSON Payload (Raw JSON)
 
 ```js
-http://localhost:3000/api/dislike => DELETE
+http://104.248.153.255/api/dislike => DELETE
 
 {
     "id_review": 1,
