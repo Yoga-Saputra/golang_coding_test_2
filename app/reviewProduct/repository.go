@@ -22,7 +22,7 @@ func NewRepository(db *gorm.DB) *repositoryDB {
 
 func (r *repositoryDB) FindAll() ([]ReviewProduct, error) {
 	var rProduct []ReviewProduct
-	err := r.db.Debug().Preload("Members").Find(&rProduct).Error
+	err := r.db.Debug().Preload("Members").Preload("ReviewProductMembers").Find(&rProduct).Error
 
 	if err != nil {
 		return rProduct, err

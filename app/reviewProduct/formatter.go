@@ -17,14 +17,10 @@ func FormatRProduct(rProduct ReviewProduct) ReviewProductFormatter {
 	var skinColor interface{}
 	// var countTo interface{}
 
-	if len(rProduct.Members) > 0 {
-		for _, member := range rProduct.Members {
-			gender = member.Gender
-			username = member.Username
-			skinType = member.Skintype
-			skinColor = member.Skincolor
-		}
-	}
+	gender = rProduct.Members.Gender
+	username = rProduct.Members.Username
+	skinType = rProduct.Members.Skintype
+	skinColor = rProduct.Members.Skincolor
 
 	formater := ReviewProductFormatter{
 		DescReview:       rProduct.DescReview,
@@ -32,7 +28,7 @@ func FormatRProduct(rProduct ReviewProduct) ReviewProductFormatter {
 		Username:         username,
 		Skintype:         skinType,
 		Skincolor:        skinColor,
-		TotalLikeReviews: len(rProduct.Members),
+		TotalLikeReviews: len(rProduct.ReviewProductMembers),
 	}
 
 	return formater
